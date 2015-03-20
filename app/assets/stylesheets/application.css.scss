@@ -14,6 +14,9 @@
  *= require_self
  */
 
+$deep-blue: #397CAC;
+
+
 body {
   font-family: 'Lato', sans-serif;
   background: #EDEFF0;
@@ -25,14 +28,11 @@ body {
   margin: 0 auto;
 }
 
-.clearfix:before, .clearfix:after {
-  content: " ";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-}
+.clearfix:after { content: "\00A0"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+.clearfix{ display: inline-block;}
+html[xmlns] .clearfix { display: block;}
+* html .clearfix{ height: 1%;}
+.clearfix {display: block}
 
 .main_header {
   background: white;
@@ -49,13 +49,13 @@ body {
       letter-spacing: -1px;
       font-size: 1.2rem;
       text-decoration: none;
-      color: rgb(106, 146, 192);
+      color: $deep-blue;
     }
   }
   #buttons {
     float: right;
     a {
-      background: rgb(106, 146, 192);
+      background: $deep-blue;
       line-height: 60px;
       border-radius: .2em;
       padding: .5em 1em;
@@ -74,7 +74,7 @@ body {
   .post {
     margin: 1em 0;
     padding: 1em 0;
-    border-bottom: 1px solid #D1D1D1;
+    border-bottom: 1px solid #F1F1F1;
     .title {
       margin: 0;
       a {
@@ -92,6 +92,15 @@ body {
   }
 }
 
+.button {
+  color: $deep-blue;
+  border: 1px solid $deep-blue;
+  padding: .5em 1em;
+  border-radius: 0.2em;
+  text-decoration: none;
+  margin-right: 2%;
+}
+
 #post_content {
   background: white;
   padding: 2em 5%;
@@ -99,7 +108,7 @@ body {
   h1 {
     font-weight: 100;
     font-size: 2em;
-    color: #397CAC;
+    color: $deep-blue;
     margin-top: 0;
   }
   p {
@@ -107,6 +116,67 @@ body {
     font-size: 0.9rem;
     font-weight: 100;
     line-height: 1.5;
+  }
+  .comment_count {
+    font-weight: 100;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    float: right;
+  }
+  #comments {
+    h2 {
+      font-weight: 100;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      float: right;
+    }
+    .comment {
+      border-bottom: 1px solid #d1d1d1;
+      padding-bottom: 1em;
+      margin-bottom: 1em;
+      .content {
+        width: 75%;
+        float: left;
+      }
+      .buttons {
+        width: 25%;
+        float: left;
+        font-size: 0.8em;
+        text-align: right;
+        padding-top: 1.5em;
+        a {
+          color: $deep-blue;
+          border: 1px solid $deep-blue;
+          padding: .5em 1em;
+          border-radius: 0.2em;
+          text-decoration: none;
+          margin-right: 2%;
+        }
+      }
+      .comment_content {
+        margin: 0;
+        padding: 0;
+      }
+      .comment_author {
+        color: $deep-blue;
+        margin-top: .5rem;
+        font-size: .6em;
+        font-weight: 700;
+      }
+    }
+    input[type="submit"] {
+      background: $deep-blue;
+      border: none;
+      color: white;
+      font-weight: 100;
+      padding: 0.5em 1em;
+      border-radius: .2em;
+
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+    }
   }
 
 }
